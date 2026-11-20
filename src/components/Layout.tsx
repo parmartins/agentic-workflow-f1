@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 export const navItems = [
   { to: '/', label: 'Home', end: true },
   { to: '/calendar', label: 'Calendar', end: false },
+  { to: '/standings/drivers', label: 'Driver standings', end: false },
 ]
 
 export function Layout() {

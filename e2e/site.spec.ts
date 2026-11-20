@@ -21,3 +21,11 @@ test('unknown race shows a not-found message', async ({ page }) => {
   await page.goto('/races/99')
   await expect(page.getByRole('heading', { name: 'Race not found' })).toBeVisible()
 })
+
+test('driver standings are reachable from the nav', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Driver standings' }).click()
+  await expect(page).toHaveURL(/\/standings\/drivers$/)
+  await expect(page.getByRole('heading', { name: 'Driver standings' })).toBeVisible()
+  await expect(page.getByRole('table')).toBeVisible()
+})
